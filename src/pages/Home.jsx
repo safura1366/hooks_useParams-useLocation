@@ -1,11 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from "react";
+import { useNavigate } from "react-router";
 
 export default function Home() {
+  const navigate = useNavigate();
+  const redirectToUsersPage = () => {
+    console.log('test')
+    navigate("/users",{state:{name:"ali",age:27}});
+  };
   return (
     <div>
       <h1>home page</h1>
-      <Link to="/users">users</Link>
+      <button onClick={redirectToUsersPage}>users</button>
     </div>
-  )
+  );
 }
